@@ -1,0 +1,63 @@
+<section class="is-fluid section has-background-grey-darker">
+    <div class="columns is-centered is-mobile">
+        <div class="column is-three-quarters-mobile is-half-tablet is-two-fifths-desktop is-one-third-fullhd">
+            <form *ngIf="currentPost" [formGroup]="fg">
+                <div class="card has-background-warning-light">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <label for="title" class="label">Title</label>
+                        </p>
+                        <p class="card-header-title">
+                            <input type="text" class="input" formControlName="title">
+                        </p>
+                    </header>
+                    <div *ngIf="imageValid" class="card-image">
+                        <figure class="image is-4by3">
+                            <img [src]="this.fg.get('image')?.value" alt="Sorry! Something is wrong with this image :(">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <label for="image" class="label">Image URL</label>
+                        <input type="text" (change)="checkImage()" class="input" formControlName="image">
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img style="border-radius:6px" src="/assets/profileImg.png" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content pb-3" style="overflow: hidden">
+                                <p class="title is-4">{{currentPost.userId}}</p>
+                            </div>
+                        </div>
+                        <label for="content" class="label">Content</label>
+                        <input type="textarea" class="input" formControlName="content">
+                    </div>
+                    <footer class="card-footer" style="border: none">
+                        <div class="buttons card-footer-item is-align-items-stretch is-justify-content-space-evenly">
+                            <button class="button is-link is-outlined is-light is-flex-grow-1" (click)="updatePost()">
+                                <span class="icon is-small">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </span>
+                                <span>Save Changes</span>
+                            </button>
+                            <a class="button is-danger is-outlined is-light is-flex-grow-1" (click)="home()" [routerLink]="['/finds']">
+                                <span class="icon">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </span>
+                                <span>Back to Home</span>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </form>
+            <div *ngIf="!currentPost" class="colummns is-centered is-mobile">
+                <div class="column has-text-centered">
+                    <p class="title is-2 has-text-warning">Oh no!</p>
+                    <p class="is-flex-wrap-wrap has-text-warning">we lost the post you were trying to edit, please try again</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

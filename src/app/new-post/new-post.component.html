@@ -1,0 +1,30 @@
+<section class="section has-background-grey-darker p-6">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-7">
+    <form [formGroup]="fg">
+      <div class="field">
+          <label class="label has-text-primary" required>Title</label>
+          <div class="control">
+            <input class="input" type="text" formControlName="title" placeholder="Post Title">
+          </div>
+      </div>
+      <div class="field">
+          <label class="label has-text-primary">Image URL</label>
+          <div class="control">
+            <input class="input" type="text" formControlName="image" placeholder="Text input">
+          </div>
+      </div>
+      <div class="field">
+          <label class="label has-text-primary">Content</label>
+          <div class="control">
+            <textarea class="textarea" formControlName="content" placeholder="Textarea" required></textarea>
+          </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <button class="button is-danger mx-1" [routerLink]="['/']">Cancel</button>
+        <button class="button is-success mx-1" (click)="createPost()" [routerLink]="['/finds']">Create</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</section>

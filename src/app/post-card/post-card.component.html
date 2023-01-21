@@ -1,0 +1,44 @@
+<div class="card has-background-warning-light">
+    <header class="card-header">
+        <p class="card-header-title">
+            {{currentPost?.title}}
+        </p>
+    </header>
+    <div *ngIf="image" class="card-image">
+        <figure class="image is-4by3">
+            <img [src]="currentPost?.headerImage" alt="Sorry! Something is wrong with this image :(">
+        </figure>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48">
+                    <img style="border-radius:6px" src="/assets/profileImg.png" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="media-content" style="overflow: hidden">
+                <p class="title is-4">{{currentPost?.userId}}</p>
+                <p class="subtitle is-7 mb-0">{{createdDate}}</p>
+                <p *ngIf="updated" class="subtitle is-7">Edited: {{lastUpdated}}</p>
+            </div>
+        </div>
+
+        <div class="content" [appAppendHtml]="currentPost?.content"></div>
+    </div>
+    <footer *ngIf="footer" class="card-footer" style="border: none">
+        <div class="buttons card-footer-item is-align-items-stretch is-justify-content-space-evenly">
+            <button class="button is-link is-outlined is-light is-flex-grow-1" (click)="setEditPost()" [routerLink]="['/update_post']">
+                <span class="icon is-small">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </span>
+                <span>Update</span>
+            </button>
+            <a class="button is-danger is-outlined is-light is-flex-grow-1" (click)="deletePost()" href="">
+                <span class="icon">
+                    <i class="fa-regular fa-trash-can"></i>
+                </span>
+                <span>Delete</span>
+            </a>
+        </div>
+    </footer>
+</div>

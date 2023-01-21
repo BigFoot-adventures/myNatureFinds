@@ -1,0 +1,48 @@
+<section class="section has-background-grey-darker py-1">
+  <div class="columns is-centered is-mobile">
+    <div class="column is-7">
+      <form [formGroup]="fg">
+        <div class="field">
+          <label class="label has-text-primary">Username</label>
+          <div class="control">
+          <input class="input" formControlName="username" type="text" placeholder="Username" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">First</label>
+          <div class="control">
+            <input class="input" formControlName="firstName" type="text" placeholder="First Name" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Last Name</label>
+          <div class="control">
+            <input class="input" formControlName="lastName" type="text" placeholder="Last" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Email Address</label>
+          <div class="control">
+            <input class="input" formControlName="email" type="text" placeholder="Email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Password</label>
+          <div class="control">
+            <input class="input" formControlName="password" type="password" placeholder="Password" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Confirm Password</label>
+          <div class="control">
+            <input class="input" formControlName="confirmPwd" type="password" placeholder="Confirm Password" required>
+          </div>
+        </div>
+        <br>
+        <div class="control has-text-centered">
+          <button (click)="createUser()" class="button is-success">Create Profile</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

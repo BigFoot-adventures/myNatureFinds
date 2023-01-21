@@ -1,0 +1,40 @@
+    <nav class="navbar has-background-primary is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="">
+                <img src="/assets/logo.png" width="28" height="28"> 
+                NatureFinds
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="true" data-target="myNav">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="myNav">
+            <div class="navbar-start">
+                <a class="navbar-item" [routerLink]="['/finds']">
+                    Home
+                </a>
+                <a class="navbar-item" *ngIf="currentUser" [routerLink]="['/new_post']">
+                    <span class="icon">
+                        <i class="fa-regular fa-plus"></i>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                <a *ngIf="!currentUser" class="navbar-item" [routerLink]="['/signin']">
+                    Sign in
+                </a>
+                <a *ngIf="!currentUser" class="navbar-item" [routerLink]="['/register']">
+                    Sign up
+                </a>
+                <a *ngIf="currentUser" class="navbar-item" [routerLink]="['/profile']">
+                    {{userObj?.firstName}} {{userObj?.lastName}}
+                </a>
+                <a *ngIf="currentUser" (click)="Logout()" class="navbar-item" [routerLink]="['/signin']">
+                    Sign out
+                </a>
+            </div>
+        </div>
+    </nav>

@@ -1,0 +1,23 @@
+<section class="section is-fluid py-6 has-background-grey-darker">
+    <div class="columns is-centered is-mobile">
+        <div class="column is-three-quarters-mobile is-half-tablet is-two-fifths-desktop is-one-third-fullhd">
+            <div *ngIf="postArray.length > 0">
+                <div class="container pt-2" *ngFor="let current of postArray">
+                    <app-post-card [currentPost]="current"></app-post-card>
+                    <br>
+                </div>
+            </div>
+            <div class="content has-text-centered" *ngIf="postArray.length <= 0">
+                <h1 class="has-text-warning">No Posts Found</h1>
+                <span class="has-text-primary is-primary">
+                    <i class="fa-solid fa-telescope"></i><!-- is not showing, may need to add custom css class -->
+                </span>
+                <div class="my-6 is-flex is-flex-direction-column">
+                    <button *ngIf="currentUser" class="button" [routerLink]="['/new_post']">Start it off!</button>
+                    <button *ngIf="!currentUser" class="button is-primary is-outlined my-3 mx-auto" [routerLink]="['/signin']">Sign In</button>
+                    <button *ngIf="!currentUser" class="button is-warning is-outlined mx-auto" [routerLink]="['/register']">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
